@@ -37,7 +37,8 @@ const Listings = props => {
                                     <TableCell>
                                         <DeleteIcon
                                             onClick = {() => props.removeListing(index)}
-                                            className="icon text-red" /> 
+                                            className="icon text-red" 
+                                            style={{ color: "red"}} /> 
                                     </TableCell>     
                                     ):(null)}
                 </TableRow>

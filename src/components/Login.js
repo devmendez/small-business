@@ -8,6 +8,7 @@ class App extends Component {
     username: "",
     password: ""
   }
+      
 
   handleTextChange = e => {
     const state = { ...this.state }
@@ -27,7 +28,7 @@ class App extends Component {
     return (
       <div className="App">
         <Container maxWidth="sm">
-          <form className="login-form" onSubmit={this.login}>
+          <form className="login-form-wrapper" onSubmit={this.login}>
             <TextField
               onChange={this.handleTextChange}
               value={this.state.username}
@@ -35,6 +36,7 @@ class App extends Component {
               label="Username"
               type="text"
             />
+            <br/>
             <TextField
               onChange={this.handleTextChange}
               value={this.state.password}
@@ -42,14 +44,15 @@ class App extends Component {
               label="Password"
               type="password"
             />
+            <br/>
             <Button
               onClick={this.login}
               type="submit"
               className="login-button"
               variant="contained"
-              color="primary"
+              backgroundColor="Gray"
             >
-              Login
+            LOGIN
             </Button>
           </form>
         </Container>
