@@ -43,7 +43,7 @@ class AddListing extends Component {
             <div>
             <form 
                 onSubmit={this.handleSubmit}
-                style={{ display: 'flex', flexDirection: 'column', width: '300px' }}>
+                style={{ display: 'flex', flexDirection: 'column', width: '300px', alignContent: 'center' }}>
             <TextField 
                 id="Name" 
                 placeholder="Name" 

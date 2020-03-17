@@ -7,7 +7,7 @@ const Map = (props) => {
     const defaultProps = {
         center: {
             lat: props.lat,
-            long: props.long,
+            lng: props.lng,
         },
         zoom: 11
     };
@@ -22,7 +22,7 @@ const Map = (props) => {
             >
                 <LocationOnIcon
                     lat={props.lat}
-                    long={props.long}
+                    long={props.lng}
                 />
             </GoogleMapReact>
         </Container>

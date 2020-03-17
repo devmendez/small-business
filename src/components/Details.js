@@ -6,13 +6,13 @@ const AnyReactComponent = ({ text }) => <div>{text}</div>
 
 const Details = (props) => {
     const id = props.match.params.id
-    const listing = props.listing.find(d => d.id == id)
+    const listings = props.listings.find(d => d.id == id)
 
 
 const defaultProps = {
     center: {
-        lat: Number(listing.Latitude),
-        long: Number(listing.Longitude),
+        lat: Number(listings.Latitude),
+        lng: Number(listings.Longitude),
     },
     zoom: 11
 }
@@ -20,17 +20,17 @@ const defaultProps = {
 
     return (
         <Container maxWidth="sm" className="details-container">
-            <h2>{listing.Name}</h2>
-                <h4>{listing.Address}</h4>
-                <h4>{listing.Hours}</h4>
-                <p>{listing.Description}</p>
+            <h2>{listings.Name}</h2>
+                <h4>{listings.Address}</h4>
+                <h4>{listings.Hours}</h4>
+                <p>{listings.Description}</p>
             <Container style={{ height: "400px", width: "450px"}}>
                 <GoogleMapReact
                 bootstrapURLKeys={{ key: process.env.GOOGLE_MAP_KEY }}
                 defaultCenter={defaultProps.center}
                 defaultZoom={defaultProps.zoom}
                 >
-                    <AnyReactComponent lat={listing.Latitude} long={listing.Longitude} text={listing.Name} />
+                    <AnyReactComponent lat={listings.Latitude} lng={listings.Longitude} text={listings.Name} />
                 </GoogleMapReact>
             </Container>
         </Container>
