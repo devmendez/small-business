@@ -7,14 +7,15 @@ import SnackbarContent from '@material-ui/core/SnackbarContent'
 
 class Navigation extends Component {
 
-    logOutUser = (e) => {
+    logOut = (e) => {
         e.preventDefault()
         document.cookie = "loggedIn=true;max-age=0*0"
         window.location.replace("/login")
         }
     
     render(){
-        return (        
+        return (  
+            <div>   
             <AppBar style={{ background: "#3CB371", position: "relative"}}>
                 <Toolbar>
                     <IconButton color="inherit">
@@ -25,10 +26,10 @@ class Navigation extends Component {
                     </Typography>               
                     <List className="nav-list">
                     <ListItem className="nav-list-item">
-                        <Link style={{ textDecoration: 'none' }} to="/">Listings</Link>
+                        <Link onClick={this.ClickListing} style={{ textDecoration: 'none' }} to="/">Listings</Link>
                     </ListItem>
                     <ListItem className="nav-list-item">
-                        {document.cookie === "loggedIn=true" ? (null) : (<Link style={{ textDecoration: 'none' }} to="/login"> Login </Link>)}
+                        {document.cookie === "loggedIn=true" ? (null) : (<Link style={{ textDecoration: 'none' }} to="/login">Login</Link>)}
                     </ListItem>
                     <ListItem className="nav-list-item">
                     {document.cookie === "loggedIn=true" ? (<Link style={{ textDecoration: 'none' }} to="/AddListing">Add</Link>) :(null)}
@@ -40,7 +41,7 @@ class Navigation extends Component {
                 </Toolbar>
             {document.cookie === "loggedIn=true" ? (<SnackbarContent style={{backgroundColor:"#D3D3D3", color:"#959595", fontSize:'15px'}} message="Logged In as: username" />) : (null)}
             </AppBar>
-       
+            </div>   
         )
     }
 }
